@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Camera, Github, AlertCircle } from 'lucide-react';
+import { AlertCircle } from 'lucide-react';
 import UploadBox from '../components/UploadBox';
 import MetadataCard from '../components/MetadataCard';
 import PDFMetadataCard from '../components/PDFMetadataCard';
@@ -47,28 +47,24 @@ const Home = () => {
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
       <header className="bg-white shadow-sm border-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <div className="flex items-center space-x-3">
-              <div className="bg-primary p-2 rounded-lg">
-                <Camera className="h-6 w-6 text-white" />
-              </div>
-              <div>
-                <h1 className="text-xl font-bold text-gray-900">GeoMetaLens</h1>
-                <p className="text-sm text-gray-500">Smart Image Metadata & Geo-Analyzer</p>
-              </div>
-            </div>
-            
-            <a
-              href="https://github.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center space-x-2 text-gray-600 hover:text-gray-900 transition-colors"
-            >
-              <Github className="h-5 w-5" />
-              <span className="hidden sm:inline">View on GitHub</span>
-            </a>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+          <div className="flex items-center space-x-2">
+            <img src={require('../assets/logo.png')} alt="GeoMetaLens" className="h-8 w-8" />
+            <h1 className="text-xl font-bold text-gray-900" style={{ fontFamily: "'Space Grotesk', sans-serif", letterSpacing: '-0.02em' }}>
+              GeoMetaLens
+            </h1>
           </div>
+          <a 
+            href="https://github.com/AKGamage/GeoMetaLens" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-gray-800 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-colors duration-200"
+          >
+            <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
+            </svg>
+            GitHub
+          </a>
         </div>
       </header>
 
@@ -139,66 +135,13 @@ const Home = () => {
           </div>
         )}
 
-        {/* Features Section */}
-        {!analysisData && !error && (
-          <div className="mt-16">
-            <div className="text-center mb-12">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Features</h3>
-              <p className="text-gray-600">Everything you need to analyze file metadata</p>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              <div className="text-center">
-                <div className="bg-blue-100 p-3 rounded-full w-12 h-12 mx-auto mb-4 flex items-center justify-center">
-                  <Camera className="h-6 w-6 text-blue-600" />
-                </div>
-                <h4 className="text-lg font-semibold text-gray-900 mb-2">Camera Details</h4>
-                <p className="text-gray-600">Extract camera make, model, lens information, and technical settings like ISO, aperture, and shutter speed.</p>
-              </div>
-              
-              <div className="text-center">
-                <div className="bg-green-100 p-3 rounded-full w-12 h-12 mx-auto mb-4 flex items-center justify-center">
-                  <svg className="h-6 w-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
-                </div>
-                <h4 className="text-lg font-semibold text-gray-900 mb-2">GPS Location</h4>
-                <p className="text-gray-600">View exact GPS coordinates and location on an interactive map. See where your photos were taken.</p>
-              </div>
-              
-              <div className="text-center">
-                <div className="bg-orange-100 p-3 rounded-full w-12 h-12 mx-auto mb-4 flex items-center justify-center">
-                  <svg className="h-6 w-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                  </svg>
-                </div>
-                <h4 className="text-lg font-semibold text-gray-900 mb-2">PDF Analysis</h4>
-                <p className="text-gray-600">Extract document metadata, author information, creation dates, security settings, and content analysis from PDF files.</p>
-              </div>
-              
-              <div className="text-center">
-                <div className="bg-purple-100 p-3 rounded-full w-12 h-12 mx-auto mb-4 flex items-center justify-center">
-                  <svg className="h-6 w-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                  </svg>
-                </div>
-                <h4 className="text-lg font-semibold text-gray-900 mb-2">Privacy Aware</h4>
-                <p className="text-gray-600">Files are processed temporarily and automatically deleted. Get warnings about sensitive metadata before sharing.</p>
-              </div>
-            </div>
-          </div>
-        )}
       </main>
 
       {/* Footer */}
-      <footer className="bg-white border-t mt-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <footer className="mt-16 py-6 bg-white border-t">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center text-gray-600">
-            <p>&copy; 2024 GeoMetaLens. Built for analyzing image and document metadata.</p>
-            <p className="text-sm mt-2">
-              Supported formats: JPG, PNG, HEIC, WebP, TIFF, PDF • Maximum file size: 10MB
-            </p>
+            <p>Developed with ❤️ by Achintha Gamage</p>
           </div>
         </div>
       </footer>

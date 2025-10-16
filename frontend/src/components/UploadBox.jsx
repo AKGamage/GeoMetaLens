@@ -62,9 +62,8 @@ const UploadBox = ({ onUpload, isLoading }) => {
           {isLoading ? (
             <Loader2 className="h-12 w-12 text-primary animate-spin" />
           ) : (
-            <div className="relative">
+            <div>
               <Upload className="h-12 w-12 text-gray-400" />
-              <Image className="h-6 w-6 text-primary absolute -bottom-1 -right-1" />
             </div>
           )}
           
