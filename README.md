@@ -80,7 +80,3 @@ GeoMetaLens/
 - ExifTool by Phil Harvey (https://exiftool.org)
   - Used for extracting metadata from images and PDFs
   - License: Perl Artistic License / GNU General Public License
-
-## License
-
-This project is licensed under the MIT License.
